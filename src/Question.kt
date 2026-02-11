@@ -14,6 +14,8 @@
 //    val difficulty: String
 //)
 
+
+
 data class Question<T>(
     val questionText: String,
     val answer: T,
@@ -25,8 +27,20 @@ enum class Difficulty {
     MEDIUM,
     HARD
 }
+interface ProgressPrintable{
+    val progressText: String
+    fun printProgressBar()
+}
+class Quiz: ProgressPrintable {
+    override val progressText: String
+        get() = "${answered} of ${total} answered"
 
-class Quiz {
+    override fun printProgressBar() {
+        repeat(Quiz.answered){print("▓")}
+        repeat(Quiz.total - Quiz.answered) {print("▓")}
+        println()
+        println(progressText)
+    }
     val question1 = Question<String>(
         "Речка спятила с ума - По домам пошла сама.",
         "водопровод",
@@ -47,17 +61,9 @@ class Quiz {
         var answered: Int = 3
     }
 }
-val Quiz.StudentProgress.progressText: String
-    get() = "${answered} of ${total} answered"
-fun Quiz.StudentProgress.printProgressBar(){
-    repeat(Quiz.answered) { print("▓")}
-    repeat(Quiz.total - Quiz.answered) {print("print")}
-    println()
-    println(Quiz.progressText)
-}
 
 fun main(){
 //    println("${Quiz.answered} of ${Quiz.total} answered")
-    println(Quiz.progressText)
-    Quiz.printProgressBar()
+    //println(Quiz.progressText)
+    Quiz().printProgressBar()
 }
