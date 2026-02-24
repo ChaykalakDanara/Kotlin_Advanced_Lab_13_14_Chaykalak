@@ -4,6 +4,16 @@ val solarSystem = rockPlanets + gasPlanets
 val newSolarSystem = arrayOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto")
 
 fun main() {
+    // Шаг 16
+//    val solarSystem = mutableSetOf(
+//        "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"
+//    )
+//    solarSystem.add("Pluto")
+//    println("Pluto" in solarSystem)
+//    solarSystem.remove("Pluto")
+//    println(solarSystem.size)
+//    println(solarSystem.contains("Pluto"))
+
     //Шаги 15.4-15.15.7
 //    val solarSystem = mutableListOf(
 //        "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"
