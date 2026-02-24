@@ -60,6 +60,7 @@ class Quiz: ProgressPrintable {
         var total: Int = 10
         var answered: Int = 3
     }
+<<<<<<< HEAD
     fun printQuiz() {
         question1.let {
             println(it.questionText)
@@ -93,3 +94,12 @@ fun main(){
     val quiz = Quiz().apply { printQuiz() }
     Quiz().printProgressBar()
 }
+=======
+}
+
+fun main(){
+//    println("${Quiz.answered} of ${Quiz.total} answered")
+    //println(Quiz.progressText)
+    Quiz().printProgressBar()
+}
+>>>>>>> e4bdeac00ab6b4e3f4c7a42fd8d863aa775b352d
