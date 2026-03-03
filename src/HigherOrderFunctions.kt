@@ -49,20 +49,23 @@ val cookies = listOf(
     )
 )
 fun main(){
-//    val fullMenu = cookies.map {
-//        "${it.name} - $${it.price}"
-//    }
-//    println("Полное меню: ")
-//    fullMenu.forEach {
-//        println(it)
-//    }
-//    val softbakedMenu = cookies.filter {
-//        it.softBaked
-//    }
-//    println("Мягкое печенье: ")
-//    softbakedMenu.forEach {
-//        println("${it.name} - $${it.price}")
-//    }
+    cookies.forEach {
+        println("Пункт меню: ${it.name}")
+    }
+    val fullMenu = cookies.map {
+        "${it.name} - $${it.price}"
+    }
+    println("Полное меню: ")
+    fullMenu.forEach {
+        println(it)
+    }
+    val softbakedMenu = cookies.filter {
+        it.softBaked
+    }
+    println("Мягкое печенье: ")
+    softbakedMenu.forEach {
+        println("${it.name} - $${it.price}")
+    }
     val groupedMenu = cookies.groupBy { it.softBaked }
     val softBakedMenu = groupedMenu[true] ?: emptyList()
     val crunchyMenu = groupedMenu[false] ?: emptyList()
@@ -74,4 +77,10 @@ fun main(){
     crunchyMenu.forEach {
         println("${it.name} - ${it.price}")
     }
+
+    val totalPrice = cookies.fold(initial = 0.0) { total, cookie ->
+        total + cookie.price
+    }
+    println("Total price: $${totalPrice}")
+
 }
